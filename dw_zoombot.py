@@ -3,10 +3,10 @@ import pyautogui as pg
 import time
 import cv2
 import csv
-from datetime import datetime
+import os
 
 def sign_in(meetid, pswrd):
-    subprocess.call("C:/Users/Daniel Wiratman/AppData/Roaming/Zoom/bin/Zoom.exe")
+    subprocess.call("C:/Users/Daniel Wiratman/AppData/Roaming/Zoom/bin/Zoom.exe") #Ganti dengan directory ZOOM ya..
     time.sleep(3)
 
     joinbutton = pg.locateOnScreen(r'join.png', confidence=0.8)
@@ -27,24 +27,11 @@ def sign_in(meetid, pswrd):
     pg.write(pswrd)
     pg.press('Enter')
 
-## For Testing
-# sign_in('5775778888','cube')
-
 file_link = open("link_kelas.csv", 'r')
 csvreader = csv.reader(file_link)
 datainlistform = list(csvreader)[1:]
 
-## For Time Purposes
-# listdatetime = datetime.strptime(datainlistform[-1][-2],"%H:%M:%S")
-# while True:
-#     datetimenow = datetime.now()
-#     if listdatetime.hour == datetimenow.hour and datetimenow.minute == listdatetime.minute:
-#        #sign_in(datainlistform[-1][0],datainlistform[-1][1])
-#        break
-#     time.sleep(1)
-
 # Printing
-import os
 os.system('cls')
 print('     __________________________________________')
 print('    |')
